@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Acme First Second Third</h1>
+        <div>
+            <div data-users='first-users'></div>
+            <div data-users='first-users'></div>
+            <div id='first' class='user-container'></div>
+        </div>
+        <div>
+            <div data-users='second-users'></div>
+            <div data-users='second-users'></div>
+            <div id='second' class='user-container'></div>
+        </div>
+        <div>
+            <div data-users='third-users'></div>
+            <div data-users='third-users'></div> 
+            <div id='third' class='user-container'></div>
+        </div>
+        <script>
+          const users = [
+              {id: 1, name: 'moe', slot: 'first'},
+              {id: 2, name: 'larry', slot: 'second'},
+              {id: 3, name: 'curly', slot: 'third'},
+              {id: 4, name: 'lucy', slot: 'third', selected: true}
+          ]
+          
+          const clearUsers = () => {
+              const userContainers = [...document.getElementsByClassName('user-container')]
+              userContainers.forEach(div => {
+                  div.innerHTML = '';
+              })
+          }
+
+          const renderUsers = (users) => {
+              if (users.length === 0) return;
+              users.array.forEach(user => {
+                  document.getElementById(user.slot).appendChild(User);
+              });
+              document.getElementById(users[0].slot).appendChild(User(users[0]));
+          }
+
+          const User = userData => {
+              const div = document.createElement('DIV');
+              div.innerHTML = userData.name;
+              return div;
+          }
+          
+        </script>
+    </body>
+</html>
